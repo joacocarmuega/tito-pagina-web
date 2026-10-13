@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tito para prestadores · Galápagos y Las Liebres</title>
+<meta name="description" content="Tito es un asistente de WhatsApp que recomienda prestadores de confianza a los vecinos de Galápagos y Las Liebres. Sumate gratis.">
+<meta property="og:title" content="Tito · Tu trabajo, recomendado por los vecinos del barrio">
+<meta property="og:description" content="Si trabajás en Galápagos o Las Liebres, sumate a Tito. Es gratis.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tito-prestadores.vercel.app">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2312301F'/%3E%3Ctext x='32' y='38' text-anchor='middle' font-family='Arial' font-weight='700' font-size='30' fill='%23fff'%3ETito%3C/text%3E%3Cpath d='M18 46 Q32 56 46 46' fill='none' stroke='%234FA64F' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&amp;family=Figtree:wght@400;500;600;700&amp;family=Fredoka:wght@600&amp;display=swap" rel="stylesheet">
+<style>
+.s0{padding: 12px 20px; border-radius: 999px; background: #FFFFFF; font-size: 17px; font-weight: 600; white-space: nowrap}
+.s1{padding: 12px 20px; border-radius: 999px; background: #E3EFDF; font-size: 17px; font-weight: 600; white-space: nowrap}
+.s2{background: #F4F7F2; border-radius: 18px; padding: 0 24px}
+.s3{display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; font-size: 19px; font-weight: 700}
+.s4{margin: 0; padding: 0 0 22px; font-size: 17px; line-height: 1.55; color: #45574B}
+.s5{font-size: 15px; color: #45574B}
+.s6{text-decoration: none; padding: 12px 0}
+.s7{margin: 0; font-size: 17px; line-height: 1.55; color: #45574B}
+.s8{background: #FFFFFF; padding: 96px 24px}
+.s9{margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(32px, 4vw, 48px); line-height: 1.08}
+.s10{margin: 0; font-size: 19px; line-height: 1.55; color: #45574B}
+.s11{background: #F4F7F2; border-radius: 22px; padding: 28px; display: flex; flex-direction: column; gap: 12px}
+.s12{width: 52px; height: 52px; border-radius: 16px; background: #E3EFDF; display: flex; align-items: center; justify-content: center; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 26px; color: #2F7A34}
+.s13{margin: 0; font-size: 21px; font-weight: 700}
+.s14{margin: 0 0 4px; color: #B9D3C3; font-size: 14px; font-weight: 600}
+.s15{max-width: 1160px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px}
+.s16{display: contents}
+.s17{font-size: 18px}
+.s18{margin: 4px 0 0; color: #B9D3C3; font-size: 15px; line-height: 1.5}
+.s19{display: flex; flex-direction: column; gap: 12px}
+.s20{padding: 12px 20px; border-radius: 999px; background: #12301F; color: #FFFFFF; font-size: 17px; font-weight: 700; white-space: nowrap}
+.s21{background: #FFFFFF; color: #12301F; border-radius: 24px; padding: 30px; box-shadow: 0 16px 40px rgba(14,36,23,.18); display: flex; flex-direction: column; gap: 6px}
+.s22{font-size: 15px; font-weight: 700; color: #2F7A34}
+.s23{font-family: 'Bricolage Grotesque', sans-serif; font-size: 28px; font-weight: 700}
+.s24{font-size: 18px; color: #45574B}
+.s25{margin-top: 16px; display: inline-flex; align-self: flex-start; align-items: center; gap: 10px; min-height: 52px; padding: 0 22px; border-radius: 14px; background: #12301F; color: #FFFFFF; text-decoration: none; font-weight: 700; font-size: 17px}
+body{margin:0;background:#F4F7F2}
+html{scroll-behavior:smooth}
+a{color:#12301F}a:hover{color:#2F7A34}
+
+/* Logo: la sonrisa se pinta al cargar y de nuevo al pasar el mouse */
+.tl{display:inline-flex;text-decoration:none}
+.tl svg{display:block;overflow:visible;transition:transform .35s cubic-bezier(.34,1.56,.64,1)}
+.tl .smile{stroke-dasharray:100;stroke-dashoffset:0;animation:smileLoad 1.1s .3s cubic-bezier(.65,0,.35,1) both}
+.tl .dot{transform-box:fill-box;transform-origin:center;transition:transform .35s cubic-bezier(.34,1.56,.64,1)}
+.tl:hover svg,.tl:focus-visible svg{transform:rotate(-3deg) scale(1.04)}
+.tl:hover .smile,.tl:focus-visible .smile{animation:smileHover .7s cubic-bezier(.65,0,.35,1) both}
+.tl:hover .dot,.tl:focus-visible .dot{transform:translateY(-6px)}
+@keyframes smileLoad{from{stroke-dashoffset:100}to{stroke-dashoffset:0}}
+@keyframes smileHover{from{stroke-dashoffset:100}to{stroke-dashoffset:0}}
+
+/* Botones y tarjetas */
+.btn{transition:transform .2s ease,box-shadow .2s ease,background-color .2s ease}
+.btn:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(18,48,31,.22)}
+.btn:active{transform:translateY(0)}
+.lift{transition:transform .25s ease,box-shadow .25s ease}
+.lift:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(18,48,31,.12)}
+.navl{position:relative}
+.navl::after{content:"";position:absolute;left:0;right:0;bottom:4px;height:3px;border-radius:3px;background:#4FA64F;transform:scaleX(0);transform-origin:left;transition:transform .25s ease}
+.navl:hover::after{transform:scaleX(1)}
+
+/* Hero */
+.up{animation:up .7s cubic-bezier(.2,.8,.2,1) both}
+@keyframes up{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+.b1{animation:pop .5s .6s cubic-bezier(.34,1.56,.64,1) both}
+.typing{animation:typing 1.2s 1.2s both}
+.b2{animation:pop .5s 2.4s cubic-bezier(.34,1.56,.64,1) both}
+.b3{animation:pop .5s 2.9s cubic-bezier(.34,1.56,.64,1) both}
+.b4{animation:pop .5s 3.5s cubic-bezier(.34,1.56,.64,1) both}
+@keyframes pop{from{opacity:0;transform:translateY(12px) scale(.94)}to{opacity:1;transform:none}}
+@keyframes typing{0%{opacity:0;max-height:0}10%{opacity:1;max-height:44px}85%{opacity:1;max-height:44px}100%{opacity:0;max-height:0;padding:0;margin:0}}
+.dots i{display:inline-block;width:7px;height:7px;margin:0 2px;border-radius:50%;background:#45574B;animation:blink 1s infinite}
+.dots i:nth-child(2){animation-delay:.15s}.dots i:nth-child(3){animation-delay:.3s}
+@keyframes blink{0%,80%,100%{opacity:.25;transform:translateY(0)}40%{opacity:1;transform:translateY(-3px)}}
+.cta-pulse{animation:pulse 2.4s 4.2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(79,166,79,.55)}70%{box-shadow:0 0 0 14px rgba(79,166,79,0)}100%{box-shadow:0 0 0 0 rgba(79,166,79,0)}}
+
+/* Aparecer al scrollear */
+@supports (animation-timeline: view()){
+.rv{animation:rv linear both;animation-timeline:view();animation-range:entry 0% cover 22%}
+@keyframes rv{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
+}
+
+/* Rubros en movimiento */
+.mq{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.mq-track{display:flex;gap:12px;width:max-content;animation:mq 38s linear infinite}
+.mq-rev .mq-track{animation-direction:reverse;animation-duration:44s}
+.mq:hover .mq-track{animation-play-state:paused}
+@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* Preguntas */
+.faq summary{list-style:none;cursor:pointer}
+.faq summary::-webkit-details-marker{display:none}
+.faq .pl{transition:transform .3s ease}
+.faq[open] .pl{transform:rotate(45deg)}
+.faq[open]{box-shadow:0 12px 30px rgba(18,48,31,.08)}
+.faq .ans{animation:up .35s ease both}
+
+/* Perfil */
+.swap{animation:pop .45s cubic-bezier(.34,1.56,.64,1) both}
+.bell{transform-origin:50% 10%;animation:ring 3s 1s infinite}
+@keyframes ring{0%,70%,100%{transform:rotate(0)}74%{transform:rotate(14deg)}80%{transform:rotate(-12deg)}86%{transform:rotate(8deg)}92%{transform:rotate(-4deg)}}
+
+@media (prefers-reduced-motion: reduce){
+*,*::before,*::after{animation:none !important;transition:none !important}
+.typing{display:none}
+}
+
+.tg{min-height:46px;padding:0 18px;border:0;border-radius:12px;background:transparent;color:#12301F;font-family:inherit;font-size:16px;font-weight:600;cursor:pointer;transition:background-color .2s ease,color .2s ease}
+.tg[aria-pressed="true"]{background:#12301F;color:#FFFFFF;font-weight:700}
+[hidden]{display:none !important}
+.tito-float{animation:float 4s ease-in-out infinite;transition:transform .3s ease}
+.tito-float:hover{animation-play-state:paused;transform:rotate(-6deg) scale(1.05)}
+@keyframes float{0%,100%{translate:0 0}50%{translate:0 -10px}}
+</style>
+</head>
+<body>
+<div style="font-family: 'Figtree', system-ui, sans-serif; color: #12301F; background: #F4F7F2; min-height: 100vh; overflow-x: hidden">
+
+<header style="max-width: 1160px; margin: 0 auto; padding: 20px 24px; display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: space-between">
+<a href="#inicio" class="tl" aria-label="Tito, ir al inicio">
+<svg width="112" height="72" viewBox="0 0 180 116" aria-hidden="true">
+<text x="90" y="74" text-anchor="middle" font-family="Fredoka, 'Figtree', sans-serif" font-weight="600" font-size="86" fill="#12301F" letter-spacing="-2">Tito</text>
+<path d="M52 94 Q90 118 128 94" fill="none" stroke="#DCE8D8" stroke-width="11" stroke-linecap="round"></path>
+<path class="smile" d="M52 94 Q90 118 128 94" pathLength="100" fill="none" stroke="#4FA64F" stroke-width="11" stroke-linecap="round"></path>
+</svg>
+</a>
+<nav style="display: flex; flex-wrap: wrap; gap: 4px 24px; font-size: 16px; font-weight: 600">
+<a href="#como-funciona" class="navl s6">Cómo funciona</a>
+<a href="#avisos" class="navl s6">Avisos de llegada</a>
+<a href="#preguntas" class="navl s6">Preguntas</a>
+<a href="#contacto" class="navl s6">Contacto</a>
+</nav>
+</header>
+
+<section id="inicio" style="max-width: 1160px; margin: 0 auto; padding: 40px 24px 96px; display: flex; flex-wrap: wrap; gap: 56px; align-items: center">
+<div style="flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 24px">
+<p class="up" style="margin: 0; display: inline-flex; align-self: flex-start; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 999px; background: #E3EFDF; color: #12301F; font-weight: 600; font-size: 15px"><span style="width: 8px; height: 8px; border-radius: 50%; background: #4FA64F"></span>Para prestadores de Galápagos y Las Liebres</p>
+<h1 class="up" style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(40px, 6vw, 72px); line-height: 1.02; letter-spacing: -0.02em; animation-delay: .1s">Tu trabajo, recomendado por los vecinos del barrio.</h1>
+<p class="up" style="margin: 0; font-size: 20px; line-height: 1.55; color: #45574B; max-width: 560px; animation-delay: .2s">Tito es un asistente de WhatsApp que ayuda a los vecinos a encontrar prestadores de confianza, con reseñas de otros vecinos del mismo barrio. Si ya trabajás en Galápagos o Las Liebres, queremos que estés.</p>
+<div class="up" style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; animation-delay: .3s">
+<a href="#contacto" class="btn cta-pulse" style="display: inline-flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 26px; border-radius: 14px; background: #12301F; color: #FFFFFF; text-decoration: none; font-weight: 700; font-size: 17px">Quiero sumarme
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></a>
+<a href="#avisos" class="btn" style="display: inline-flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 22px; border-radius: 14px; border: 2px solid #12301F; color: #12301F; text-decoration: none; font-weight: 700; font-size: 17px">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+Ver el video</a>
+</div>
+</div>
+<div class="up" style="flex: 1 1 360px; min-width: 0; display: flex; justify-content: center; animation-delay: .35s">
+<div style="width: 100%; max-width: 380px; background: #12301F; border-radius: 28px; padding: 24px; box-sizing: border-box; display: flex; flex-direction: column; gap: 12px; min-height: 420px">
+<p class="s14">Así lo ve un vecino en WhatsApp</p>
+<div style="display: flex; align-items: center; gap: 12px; padding-bottom: 12px; border-bottom: 1px solid #24452F">
+<img src="/tito.webp" alt="Tito" width="44" height="44" style="width: 44px; height: 44px; border-radius: 50%; display: block; background: #E3EFDF">
+<div style="display: flex; flex-direction: column"><strong style="color: #FFFFFF; font-size: 16px">Tito</strong><span style="color: #8FCB8F; font-size: 13px">en línea</span></div>
+</div>
+<div class="b1" style="align-self: flex-end; max-width: 80%; background: #4FA64F; color: #0E2417; padding: 12px 14px; border-radius: 16px 16px 4px 16px; font-size: 16px; line-height: 1.4; font-weight: 500">Hola Tito, necesito un electricista para mañana</div>
+<div class="typing dots" style="align-self: flex-start; background: #FFFFFF; padding: 14px 16px; border-radius: 16px 16px 16px 4px; overflow: hidden"><i></i><i></i><i></i></div>
+<div class="b2" style="align-self: flex-start; max-width: 88%; background: #FFFFFF; color: #12301F; padding: 12px 14px; border-radius: 16px 16px 16px 4px; font-size: 16px; line-height: 1.45">Te paso los electricistas que más recomiendan los vecinos de tu barrio:</div>
+<div class="b3" style="align-self: flex-start; width: 88%; box-sizing: border-box; background: #FFFFFF; color: #12301F; padding: 12px 14px; border-radius: 16px; display: flex; flex-direction: column; gap: 4px">
+<strong style="font-size: 16px">[Nombre del prestador]</strong>
+<span class="s5">★ 4,9 · 12 reseñas de vecinos</span>
+<span style="font-size: 15px; color: #45574B; font-style: italic">“Puntual y prolijo, lo recomiendo”</span>
+</div>
+<div class="b4" style="align-self: flex-start; background: #E3EFDF; color: #12301F; padding: 10px 14px; border-radius: 12px; font-size: 15px; font-weight: 700">Quiero el contacto</div>
+</div>
+</div>
+</section>
+
+<section class="s8" id="como-funciona">
+<div class="s15">
+<div class="rv" style="display: flex; flex-wrap: wrap; align-items: center; gap: 24px 32px">
+<img class="tito-float" src="/tito.webp" alt="Tito, el personaje de la marca" width="160" height="160" style="width: 160px; height: 160px; border-radius: 50%; display: block; flex: none; box-shadow: 0 18px 40px rgba(18,48,31,.18)">
+<div style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 12px; max-width: 680px">
+<p class="tito-bubble" style="margin: 0; align-self: flex-start; position: relative; padding: 10px 16px; border-radius: 16px 16px 16px 4px; background: #E3EFDF; color: #12301F; font-size: 17px; font-weight: 600">¡Hola! Soy Tito, el vecino que recomienda.</p>
+<h2 class="s9">Cómo funciona</h2>
+<p class="s10">Vos no tenés que instalar nada ni aprender nada nuevo. Los vecinos te siguen escribiendo por WhatsApp, como siempre.</p>
+</div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px">
+<div class="rv lift s11">
+<span class="s12">1</span>
+<h3 class="s13">El vecino pide</h3>
+<p class="s7">Le escribe a Tito lo que necesita: “busco jardinero”, “se me rompió el aire”.</p>
+</div>
+<div class="rv lift s11">
+<span class="s12">2</span>
+<h3 class="s13">Tito te recomienda</h3>
+<p class="s7">Le muestra los prestadores de ese rubro con las reseñas de otros vecinos del barrio.</p>
+</div>
+<div class="rv lift s11">
+<span class="s12">3</span>
+<h3 class="s13">Te escribe directo</h3>
+<p class="s7">El vecino recibe tu contacto y arreglan todo entre ustedes: precio, día y horario.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="perfil" style="padding: 96px 24px">
+<div style="max-width: 1160px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 56px; align-items: center">
+<div class="rv" style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 18px">
+<p style="margin: 0; align-self: flex-start; padding: 6px 12px; border-radius: 999px; background: #E3EFDF; color: #2F7A34; font-weight: 700; font-size: 14px">Un consejo</p>
+<h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(30px, 3.6vw, 44px); line-height: 1.08">Cuanto más nos contás, más fácil te eligen</h2>
+<p class="s10">Fotos de tus trabajos, tu Instagram y tus promociones ayudan al vecino a decidirse. Mandanos lo que tengas y lo sumamos a tu perfil.</p>
+<p class="s7">Tocá los botones para ver la diferencia:</p>
+<div role="group" aria-label="Ver perfil" style="display: inline-flex; align-self: flex-start; gap: 4px; padding: 5px; border-radius: 16px; background: #E3EFDF">
+<button type="button" id="btn-basic" aria-pressed="false" class="tg">Perfil básico</button>
+<button type="button" id="btn-full" aria-pressed="true" class="tg">Perfil completo</button>
+</div>
+</div>
+<div class="rv" style="flex: 1 1 360px; min-width: 0; display: flex; justify-content: center">
+<div style="width: 100%; max-width: 380px; background: #12301F; border-radius: 28px; padding: 22px; box-sizing: border-box; display: flex; flex-direction: column; gap: 12px; min-height: 470px">
+<p class="s14">Lo que recibe el vecino</p>
+<div class="s16" id="view-basic" hidden>
+<div class="swap" style="background: #FFFFFF; border-radius: 18px; padding: 18px; display: flex; flex-direction: column; gap: 6px">
+<strong class="s17">[Nombre del prestador]</strong>
+<span class="s5">Jardinería · Las Liebres</span>
+<span class="s5">★ 4,8 · 9 reseñas de vecinos</span>
+</div>
+<p class="swap s18">Con un perfil básico, el vecino solo tiene tu nombre y tus reseñas para decidir.</p>
+</div>
+<div class="s16" id="view-full">
+<div class="swap" style="background: #FFFFFF; border-radius: 18px; padding: 18px; display: flex; flex-direction: column; gap: 10px">
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px">
+<div style="aspect-ratio: 1; border-radius: 10px; background: #CFE3C9; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2F7A34" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"></rect><circle cx="9" cy="9" r="2"></circle><path d="M21 15l-5-5L5 21"></path></svg></div>
+<div style="aspect-ratio: 1; border-radius: 10px; background: #B7D6AE; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2F7A34" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"></rect><circle cx="9" cy="9" r="2"></circle><path d="M21 15l-5-5L5 21"></path></svg></div>
+<div style="aspect-ratio: 1; border-radius: 10px; background: #DCE8D8; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2F7A34" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"></rect><circle cx="9" cy="9" r="2"></circle><path d="M21 15l-5-5L5 21"></path></svg></div>
+</div>
+<strong class="s17">[Nombre del prestador]</strong>
+<span class="s5">Jardinería · Las Liebres</span>
+<span class="s5">★ 4,8 · 9 reseñas de vecinos</span>
+<span style="display: inline-flex; align-items: center; gap: 6px; font-size: 15px; color: #12301F; font-weight: 600"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="0.6"></circle></svg>@tu_instagram</span>
+<span style="align-self: flex-start; padding: 6px 10px; border-radius: 8px; background: #E3EFDF; color: #2F7A34; font-size: 14px; font-weight: 700">Promo: [tu oferta para vecinos]</span>
+</div>
+<p class="swap s18">Con fotos, Instagram y una promo, el vecino ve tu trabajo antes de escribirte.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="s8" id="avisos">
+<div style="max-width: 1160px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 48px; align-items: center">
+<div class="rv" style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+<span class="bell" style="width: 56px; height: 56px; border-radius: 18px; background: #12301F; display: flex; align-items: center; justify-content: center">
+<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#4FA64F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg>
+</span>
+<h2 class="s9">Avisá cuándo venís y los vecinos se enteran</h2>
+<p class="s10">¿Vas a estar en el barrio? Contanos el día y Tito les avisa a los vecinos que pidieron tu rubro. Así sumás más trabajos en el mismo viaje. En el video te mostramos cómo funciona.</p>
+</div>
+<div class="rv" style="flex: 1 1 320px; min-width: 0; display: flex; justify-content: center">
+<div style="width: 100%; max-width: 340px; aspect-ratio: 9 / 16; border-radius: 28px; overflow: hidden; background: #12301F; box-shadow: 0 24px 60px rgba(18,48,31,.22); border: 8px solid #12301F">
+<iframe src="https://www.youtube-nocookie.com/embed/H8vTFd8r9MM?rel=0&amp;playsinline=1" title="Video: avisos de llegada de Tito" style="width: 100%; height: 100%; border: 0; display: block" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+</div>
+</div>
+</div>
+</section>
+
+<section style="padding: 88px 0">
+<div class="rv" style="max-width: 1160px; margin: 0 auto; padding: 0 24px 32px; display: flex; flex-direction: column; gap: 12px">
+<h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(28px, 3.4vw, 40px); line-height: 1.1">Algunos de los rubros que piden los vecinos</h2>
+<p style="margin: 0; font-size: 18px; line-height: 1.55; color: #45574B; max-width: 680px">Es solo una muestra: sumamos rubros todo el tiempo. Si trabajás en el barrio, hagas lo que hagas, escribinos.</p>
+</div>
+<div class="s19">
+<div class="mq">
+<div class="mq-track">
+<span class="s0">Jardinería</span>
+<span class="s0">Electricidad</span>
+<span class="s0">Plomería</span>
+<span class="s0">Paseo de perros</span>
+<span class="s0">Limpieza</span>
+<span class="s0">Clases particulares</span>
+<span class="s0">Chofer</span>
+<span class="s0">Lavado de autos</span>
+<span class="s0">Jardinería</span>
+<span class="s0">Electricidad</span>
+<span class="s0">Plomería</span>
+<span class="s0">Paseo de perros</span>
+<span class="s0">Limpieza</span>
+<span class="s0">Clases particulares</span>
+<span class="s0">Chofer</span>
+<span class="s0">Lavado de autos</span>
+</div>
+</div>
+<div class="mq mq-rev">
+<div class="mq-track">
+<span class="s1">Electrodomésticos</span>
+<span class="s1">Carpintería</span>
+<span class="s1">Calderas</span>
+<span class="s1">Aire acondicionado</span>
+<span class="s1">Mudanzas</span>
+<span class="s1">Piletas</span>
+<span class="s1">Pintura</span>
+<span class="s20">¡y muchos más!</span>
+<span class="s1">Electrodomésticos</span>
+<span class="s1">Carpintería</span>
+<span class="s1">Calderas</span>
+<span class="s1">Aire acondicionado</span>
+<span class="s1">Mudanzas</span>
+<span class="s1">Piletas</span>
+<span class="s1">Pintura</span>
+<span class="s20">¡y muchos más!</span>
+</div>
+</div>
+</div>
+</section>
+
+<section class="s8" id="preguntas">
+<div style="max-width: 860px; margin: 0 auto; display: flex; flex-direction: column; gap: 32px">
+<div class="rv" style="display: flex; flex-direction: column; gap: 10px">
+<h2 class="s9">Preguntas frecuentes</h2>
+<p style="margin: 0; font-size: 18px; color: #45574B">Tocá una pregunta para ver la respuesta.</p>
+</div>
+<div class="s19">
+<details class="faq rv s2">
+<summary class="s3">¿Cuesta algo estar en Tito?<svg class="pl" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2F7A34" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14"></path><path d="M5 12h14"></path></svg></summary>
+<p class="ans s4">No. Estar en Tito es gratis.</p>
+</details>
+<details class="faq rv s2">
+<summary class="s3">¿Tito cobra comisión o maneja los pagos?<svg class="pl" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2F7A34" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14"></path><path d="M5 12h14"></path></svg></summary>
+<p class="ans s4">No. Tito no cobra, no agenda y no cotiza. El precio, el día y la forma de pago los arreglás directamente con el vecino.</p>
+</details>
+<details class="faq rv s2">
+<summary class="s3">¿Qué datos me conviene pasarles?<svg class="pl" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2F7A34" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14"></path><path d="M5 12h14"></path></svg></summary>
+<p class="ans s4">Además de tu nombre, rubro y WhatsApp, sumá fotos de trabajos que hayas hecho, tu Instagram y si tenés alguna promo para los vecinos. Con eso el vecino se decide más rápido.</p>
+</details>
+<details class="faq rv s2">
+<summary class="s3">¿Quién ve mi teléfono?<svg class="pl" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2F7A34" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14"></path><path d="M5 12h14"></path></svg></summary>
+<p class="ans s4">Solo el vecino que pide tu contacto. Tito se lo pasa como tarjeta de contacto de WhatsApp. Los avisos de llegada nunca muestran tu número.</p>
+</details>
+<details class="faq rv s2">
+<summary class="s3">¿Cómo funcionan las reseñas?<svg class="pl" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2F7A34" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14"></path><path d="M5 12h14"></path></svg></summary>
+<p class="ans s4">Después de un trabajo, el vecino puede calificarte de 1 a 5 estrellas y dejar un comentario. Las reseñas se revisan antes de publicarse.</p>
+</details>
+<details class="faq rv s2">
+<summary class="s3">Trabajo en los dos barrios, ¿cómo es?<svg class="pl" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2F7A34" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14"></path><path d="M5 12h14"></path></svg></summary>
+<p class="ans s4">Podés estar en los dos. Cada barrio tiene sus propias reseñas: en Galápagos te ven las de Galápagos y en Las Liebres, las de Las Liebres.</p>
+</details>
+<details class="faq rv s2">
+<summary class="s3">¿Tengo que instalar algo?<svg class="pl" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2F7A34" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14"></path><path d="M5 12h14"></path></svg></summary>
+<p class="ans s4">No. Seguís usando tu WhatsApp de siempre. Los vecinos te escriben a vos directamente.</p>
+</details>
+<details class="faq rv s2">
+<summary class="s3">¿Cómo aviso que voy a estar en el barrio?<svg class="pl" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2F7A34" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14"></path><path d="M5 12h14"></path></svg></summary>
+<p class="ans s4">Mandanos un mensaje con el día y el barrio. Tito les avisa a los vecinos que pidieron alertas de tu rubro.</p>
+</details>
+<details class="faq rv s2">
+<summary class="s3">¿Cómo cambio mis datos o me doy de baja?<svg class="pl" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2F7A34" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14"></path><path d="M5 12h14"></path></svg></summary>
+<p class="ans s4">Escribinos por WhatsApp y lo hacemos en el momento.</p>
+</details>
+</div>
+</div>
+</section>
+
+<section id="contacto" style="background: #4FA64F; color: #0E2417; padding: 104px 24px; position: relative; overflow: hidden">
+<div class="s15">
+<div class="rv" style="display: flex; flex-direction: column; gap: 16px; max-width: 760px">
+<h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(34px, 5vw, 60px); line-height: 1.04; letter-spacing: -0.01em">¿Trabajás seguido en Galápagos o Las Liebres?</h2>
+<p style="margin: 0; font-size: 20px; line-height: 1.55; color: #12301F; font-weight: 500">Escribinos y te sumamos a Tito. Te hacemos un par de preguntas y listo. Si tenés fotos de tus trabajos o Instagram, mandalos también.</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px">
+<div class="rv lift s21">
+<span class="s22">Las Liebres</span>
+<strong class="s23">Joaquín</strong>
+<span class="s24">+54 9 11 2749-2650</span>
+<a href="https://wa.me/5491127492650?text=Hola%20Joaqu%C3%ADn!%20Trabajo%20en%20Las%20Liebres%20y%20quiero%20sumarme%20a%20Tito" class="btn s25">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z"></path></svg>
+Escribir por WhatsApp</a>
+</div>
+<div class="rv lift s21">
+<span class="s22">Galápagos</span>
+<strong class="s23">Santi</strong>
+<span class="s24">+54 9 11 6798-1096</span>
+<a href="https://wa.me/5491167981096?text=Hola%20Santi!%20Trabajo%20en%20Gal%C3%A1pagos%20y%20quiero%20sumarme%20a%20Tito" class="btn s25">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z"></path></svg>
+Escribir por WhatsApp</a>
+</div>
+</div>
+<p class="rv" style="margin: 0; align-self: flex-start; display: inline-flex; align-items: center; gap: 10px; padding: 12px 18px; border-radius: 14px; background: #E3EFDF; color: #12301F; font-size: 17px; line-height: 1.45; font-weight: 500"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2F7A34" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg><span><strong>¿Trabajás en los dos barrios?</strong> Escribile a cualquiera de los dos, es lo mismo.</span></p>
+</div>
+</section>
+
+<footer style="background: #0B2015; color: #B9D3C3; padding: 32px 24px">
+<div style="max-width: 1160px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: space-between; font-size: 15px">
+<a href="#inicio" class="tl" aria-label="Tito, volver arriba">
+<svg width="84" height="54" viewBox="0 0 180 116" aria-hidden="true">
+<text x="90" y="74" text-anchor="middle" font-family="Fredoka, 'Figtree', sans-serif" font-weight="600" font-size="86" fill="#FFFFFF" letter-spacing="-2">Tito</text>
+<path d="M52 94 Q90 118 128 94" fill="none" stroke="#24452F" stroke-width="11" stroke-linecap="round"></path>
+<path class="smile" d="M52 94 Q90 118 128 94" pathLength="100" fill="none" stroke="#4FA64F" stroke-width="11" stroke-linecap="round"></path>
+</svg>
+</a>
+<span>Prestadores de confianza para Galápagos y Las Liebres · Hecho por vecinos, para vecinos</span>
+</div>
+</footer>
+
+</div>
+<script>
+(function(){
+  var b=document.getElementById('btn-basic'),f=document.getElementById('btn-full'),
+      vb=document.getElementById('view-basic'),vf=document.getElementById('view-full');
+  function show(full){
+    b.setAttribute('aria-pressed',full?'false':'true');
+    f.setAttribute('aria-pressed',full?'true':'false');
+    vb.hidden=full; vf.hidden=!full;
+  }
+  b.addEventListener('click',function(){show(false)});
+  f.addEventListener('click',function(){show(true)});
+})();
+</script>
+</body>
+</html>
