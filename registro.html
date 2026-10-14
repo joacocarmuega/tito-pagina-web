@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tito · Registro de prestadores</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Figtree:wght@400;500;600;700;800&family=Fredoka:wght@600&display=swap" rel="stylesheet">
+<style>
+:root{--forest:#12301F;--green:#4FA64F;--sage:#E3EFDF;--bg:#F4F7F2;--ink:#45574B;--stroke:#DDE8DA}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--forest);font-family:'Figtree',system-ui,-apple-system,sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid #77B277;outline-offset:3px}
+.shell{max-width:1080px;margin:auto;padding:0 24px 70px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 0 8px}
+.brand{display:inline-flex;text-decoration:none;align-items:center}.brand svg{display:block}
+.preview{display:flex;align-items:center;gap:9px;border:1px solid var(--stroke);color:var(--ink);border-radius:40px;background:#fff;padding:9px 14px;font-size:13px;font-weight:800}
+.preview i{width:8px;height:8px;background:var(--green);border-radius:50%}
+.hero{text-align:center;padding:19px 0 26px}.eyebrow{display:inline-block;background:var(--sage);border-radius:20px;color:#2F7A34;padding:8px 13px;font-size:13px;font-weight:800}
+h1,h2,h3{font-family:'Bricolage Grotesque',sans-serif;letter-spacing:-.025em}h1{font-size:clamp(35px,5.3vw,54px);line-height:1.04;margin:14px 0 10px;font-weight:800}.hero p{color:var(--ink);font-size:16px;line-height:1.5;max-width:575px;margin:0 auto}.hero strong{font-weight:700;color:var(--forest)}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 265px;gap:22px;align-items:start;max-width:930px;margin:auto}
+.form-card{min-width:0;background:#fff;border-radius:25px;box-shadow:0 18px 55px rgba(18,48,31,.07);border:1px solid #e2eadf;padding:29px 31px 28px}
+.step-top{display:flex;align-items:center;justify-content:space-between;gap:10px}.mini{font-size:13px;font-weight:800;color:#2f7a34}.step-count{font-size:12px;color:#637568;font-weight:700}.progress{height:6px;background:#e8efe6;border-radius:20px;margin:13px 0 24px;overflow:hidden}.progress span{display:block;width:50%;height:100%;background:var(--green);border-radius:20px;transition:width .3s}
+.section-title{font-size:26px;line-height:1.08;margin:0 0 7px}.hint{color:var(--ink);font-size:14px;line-height:1.45;margin:0 0 23px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:15px}.field{margin-bottom:17px}.field label,.legend{display:block;font-size:13px;font-weight:800;margin-bottom:8px}.req{color:#348c3e}.field input,.field select,.field textarea{width:100%;background:#fff;border:1.5px solid #d6e1d4;border-radius:12px;color:var(--forest);padding:0 14px;height:47px;transition:border .2s}.field select{appearance:none;background-image:url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%2312301F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"%3E%3Cpath d="m6 9 6 6 6-6"/%3E%3C/svg%3E');background-repeat:no-repeat;background-position:right 14px center;padding-right:38px}.field input::placeholder,.field textarea::placeholder{color:#84958a}.field textarea{padding:12px 14px;height:85px;resize:vertical;line-height:1.5}
+.checkgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.checkpill{border:1.5px solid #d6e1d4;border-radius:12px;padding:12px 13px;display:flex;align-items:center;gap:10px;cursor:pointer;font-size:14px;font-weight:700;user-select:none}.checkpill:has(input:checked){background:#eff8ec;border-color:var(--green)}.checkpill input{width:17px;height:17px;accent-color:var(--green);margin:0}.micro{color:#708177;font-size:12px;line-height:1.5;margin:7px 0 0}.phone-error{color:#a13b32;font-size:12px;font-weight:700;line-height:1.5;margin:7px 0 0}.field input[aria-invalid="true"]{border-color:#b43c32;background:#fffaf9}.error{color:#a13b32;font-size:12px;font-weight:700;min-height:0;margin-top:5px}
+.actions{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:17px}.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:49px;background:var(--forest);color:#fff;border:0;border-radius:13px;padding:0 20px;font-weight:800;font-size:15px}.btn:hover{background:#1d4a30}.btn-secondary{border:1px solid var(--stroke);background:#fff;color:var(--forest)}.btn-secondary:hover{background:var(--sage)}.btn:disabled{opacity:.5;cursor:not-allowed}.safe{display:flex;gap:8px;align-items:center;color:#647568;font-size:12px;margin-top:15px}.safe svg{flex:none}
+.aside{border-radius:23px;background:var(--forest);color:white;padding:28px 23px;position:relative;overflow:hidden}.aside:after{content:' ';width:170px;height:170px;border:30px solid rgba(79,166,79,.09);border-radius:50%;position:absolute;right:-115px;top:-55px}.aside small{font-size:12px;color:#bbdec0;font-weight:700}.aside h3{font-size:25px;line-height:1.1;margin:13px 0 16px}.aside p{color:#c4d9c8;font-size:13px;line-height:1.6;margin:0 0 18px}.aside-list{display:grid;gap:12px}.aside-item{display:flex;align-items:flex-start;gap:9px;font-size:13px;line-height:1.45}.aside-item b{display:flex;width:20px;height:20px;align-items:center;justify-content:center;flex:none;border-radius:50%;background:var(--green);color:#0c2916;font-weight:900;font-size:12px}.aside-note{background:rgba(255,255,255,.1);border-radius:12px;padding:13px;margin-top:23px;color:#d7e5d7;font-size:12px;line-height:1.55}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:9px}.chip{padding:8px 11px;border-radius:20px;border:1.5px solid #d8e3d4;background:#fff;color:#3d5845;font-size:12px;font-weight:700;line-height:1;cursor:pointer}.chip.active{background:var(--sage);border-color:var(--green);color:var(--forest)}.chip.active:before{content:'✓  '}.inline-add{display:flex;gap:8px}.inline-add input{flex:1;min-width:0}.inline-add button{background:#e8f2e5;border:0;border-radius:11px;padding:0 13px;color:var(--forest);font-weight:800;font-size:13px}
+.optional-badge{color:#4d8457;font-size:11px;font-weight:800;margin-left:6px}.drop{display:block;padding:18px;border:1.5px dashed #9bbfa1;border-radius:14px;text-align:center;background:#f7faf5;cursor:pointer}.drop strong{display:block;font-size:13px}.drop span{color:#637568;font-size:12px;display:block;margin-top:3px}.drop input{display:none}.thumbs{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}.thumb{width:75px;height:75px;border-radius:10px;overflow:hidden;position:relative;background:#dae5d8}.thumb img{width:100%;height:100%;object-fit:cover}.thumb button{position:absolute;top:3px;right:3px;width:20px;height:20px;border-radius:50%;border:0;background:#fff;color:var(--forest);line-height:1;font-weight:bold}
+.consent{display:flex;align-items:flex-start;gap:9px;padding:12px;background:#f4f7f2;border-radius:12px;margin-top:9px;font-size:12px;line-height:1.5;color:#506354}.consent input{width:16px;height:16px;flex:none;accent-color:var(--green);margin-top:1px}.form-footer{font-size:12px;color:#6a7b70;text-align:center;margin-top:18px}.summary{background:#F4F7F2;border-radius:15px;padding:18px;margin:17px 0;font-size:14px;line-height:1.65}.summary dt{font-size:12px;color:#637568;font-weight:800;margin-top:8px}.summary dd{margin:2px 0 0;overflow-wrap:anywhere}.success-icon{background:var(--sage);border-radius:50%;height:53px;width:53px;display:grid;place-items:center;font-weight:900;font-size:26px;color:#2f7a34;margin-bottom:13px}
+[hidden]{display:none!important}
+@media(max-width:780px){.layout{display:flex;flex-direction:column}.form-card{width:100%}.aside{width:100%;order:2}.shell{padding:0 15px 42px}.hero{padding:12px 0 22px}.form-card{padding:23px 19px}.two{grid-template-columns:1fr;gap:0}h1{font-size:38px}.preview{font-size:11px;padding:7px 9px}.aside{padding:22px}.checkpill{padding:12px 9px;font-size:12px}}
+@media(max-width:365px){.checkgrid{grid-template-columns:1fr}}
+.send-options{display:flex;flex-direction:column;gap:10px;margin:18px 0}.send-wa{text-decoration:none;text-align:center;display:flex;justify-content:center;align-items:center;min-height:52px}.send-wa:focus-visible{outline:3px solid #77B277;outline-offset:3px}
+</style>
+</head>
+<body>
+<div class="shell" id="tito-registro">
+<header class="top">
+<a href="#tito-registro" class="brand" aria-label="Tito"><svg width="91" height="66" viewBox="0 0 180 116"><text x="90" y="74" text-anchor="middle" font-family="Fredoka, 'Figtree', sans-serif" font-weight="600" font-size="86" fill="#12301F" letter-spacing="-2">Tito</text><path d="M52 94 Q90 118 128 94" fill="none" stroke="#DCE8D8" stroke-width="11" stroke-linecap="round"/><path d="M52 94 Q90 118 128 94" fill="none" stroke="#4FA64F" stroke-width="11" stroke-linecap="round"/></svg></a>
+<div class="preview"><i></i> REGISTRO GRATUITO</div>
+</header>
+<section class="hero"><span class="eyebrow">SUMATE A TITO · ES GRATIS</span><h1>Que tu trabajo hable por vos.</h1><p>Dejá tus datos y contanos qué hacés. <strong>Si tenés redes sociales o fotos, mejor todavía.</strong> ¡Es rápido!</p></section>
+<div class="layout">
+<main class="form-card" aria-label="Formulario de registro de prestadores">
+<div class="step-top"><span class="mini" id="step-label">TU INFORMACIÓN</span><span class="step-count" id="step-count">Paso 1 de 2</span></div><div class="progress"><span id="progress-bar"></span></div>
+<form id="provider-form" novalidate>
+<section id="step1">
+<h2 class="section-title">Empecemos por lo básico</h2><p class="hint">Lo necesario para conocerte y saber qué servicios ofrecés.</p>
+<div class="two"><div class="field"><label for="name">Tu nombre o nombre del negocio <span class="req">*</span></label><input id="name" name="name" autocomplete="name" placeholder="Ej.: Juan Pérez" required></div><div class="field"><label for="phone">Tu WhatsApp <span class="req">*</span></label><input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="Ej.: 11 5555 1234" aria-describedby="phone-help phone-error" required><p class="micro" id="phone-help">Con código de área, sin 0 ni 15. Ej.: <strong>11 5555 1234</strong> o <strong>+54 9 11 5555 1234</strong>.</p><p class="phone-error" id="phone-error" role="alert" aria-live="polite" hidden></p></div></div>
+<div class="field"><label for="category">¿A qué te dedicás? <span class="req">*</span></label><select id="category" name="category" required><option value="">Elegí el rubro que mejor te representa</option><option>Comidas e insumos</option><option>Construcción y albañilería</option><option>Electricidad e instalaciones</option><option>Plomería, gas y destapaciones</option><option>Aire acondicionado y calefacción</option><option>Carpintería, herrería y muebles</option><option>Pintura y revestimientos</option><option>Cerrajería, aberturas y vidrios</option><option>Electrodomésticos y tecnología</option><option>Jardinería y espacios verdes</option><option>Piletas y bombas de agua</option><option>Limpieza y fumigaciones</option><option>Mascotas</option><option>Transporte, fletes y mudanzas</option><option>Automotores y lavado</option><option>Educación y clases</option><option>Mantenimiento general</option><option>Otro servicio</option></select><p class="micro">Por ejemplo, rotisería o venta de huevos → <strong>Comidas e insumos</strong>.</p></div>
+<div class="field" id="other-wrap" hidden><label for="other">¿Cuál es tu rubro?</label><input id="other" placeholder="Contanos a qué te dedicás" /></div>
+
+<div class="error" id="error1" role="alert"></div>
+<div class="actions" style="justify-content:flex-end"><button type="button" class="btn" id="next-btn">Continuar <span aria-hidden="true">→</span></button></div>
+<div class="safe"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4f9e52" stroke-width="2" stroke-linecap="round"><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></svg> Tus datos se revisan antes de publicar tu perfil.</div>
+</section>
+<section id="step2" hidden>
+<h2 class="section-title">Mostrá lo mejor de tu trabajo</h2><p class="hint">Todo lo que sigue es <strong>opcional</strong>. Cuanto más sumes, mejor podrán conocerte los vecinos.</p>
+
+<div class="field"><label for="details">Contanos algo más <span class="optional-badge">OPCIONAL</span></label><textarea id="details" placeholder="Ej.: trabajo los fines de semana, tengo 8 años de experiencia, hago presupuestos sin cargo..." maxlength="450"></textarea></div>
+<div class="two"><div class="field"><label for="instagram">Tus redes sociales <span class="optional-badge">OPCIONAL</span></label><input id="instagram" type="text" inputmode="url" autocomplete="off" placeholder="Instagram, TikTok, Facebook o web" maxlength="70"></div><div class="field"><label for="exp">Experiencia <span class="optional-badge">OPCIONAL</span></label><select id="exp"><option value="">Seleccioná si querés</option><option>Menos de 1 año</option><option>1 a 3 años</option><option>3 a 5 años</option><option>Más de 5 años</option></select></div></div>
+<div class="field"><label>Fotos de tus trabajos <span class="optional-badge">OPCIONAL</span></label><label class="drop" for="photos"><strong>📷 &nbsp; Agregar fotos</strong><span>Elegí hasta 4 fotos · JPG, PNG o WebP</span><input type="file" id="photos" accept="image/jpeg,image/png,image/webp" multiple></label><div class="thumbs" id="thumbs"></div><p class="micro">Podés elegirlas para revisarlas acá. Para que las recibamos, después vas a tener que adjuntarlas en el chat de WhatsApp.</p></div>
+<label class="consent"><input id="consent" type="checkbox"><span>Acepto que Tito me contacte y revise estos datos para crear mi perfil. Antes de publicar mis fotos o información se me informará cómo serán utilizados.</span></label>
+<div class="error" id="error2" role="alert"></div><div class="actions"><button type="button" class="btn btn-secondary" id="back-btn">← Volver</button><button type="submit" class="btn">Ver mi solicitud →</button></div>
+<p class="form-footer">Al continuar, podés elegir enviar tus datos a Joaquín o Santi por WhatsApp.</p>
+</section>
+<section id="step3" hidden><div class="success-icon">✓</div><h2 class="section-title">Tus datos están listos</h2><p class="hint">Elegí a quién enviárselos por WhatsApp. Revisá el mensaje y tocá <strong>Enviar</strong> en WhatsApp para completar la inscripción.</p><dl class="summary" id="summary"></dl>
+<div class="send-options" aria-label="Elegir contacto para enviar el registro">
+<a class="btn send-wa" id="send-joaquin" href="#" target="_blank" rel="noopener noreferrer">Enviar a Joaquín (Las Liebres) ↗</a>
+<a class="btn send-wa" id="send-santi" href="#" target="_blank" rel="noopener noreferrer">Enviar a Santi (Galápagos) ↗</a>
+</div><p class="form-footer">Las fotos seleccionadas no se adjuntan automáticamente. Si querés enviarlas, compartilas en el chat de WhatsApp después de enviar el mensaje. Tus datos no se almacenan en esta página.</p>
+<button type="button" class="btn btn-secondary" id="edit-btn">← Editar mis datos</button></section>
+</form>
+</main>
+<aside class="aside"><small>BIENVENIDO A TITO</small><h3>Más oportunidades, sin complicarte.</h3><p>Los vecinos encuentran prestadores para el trabajo que necesitan, y te escriben directo.</p><div class="aside-list"><div class="aside-item"><b>✓</b><span>Sumarte a Tito es <strong>gratis</strong>.</span></div><div class="aside-item"><b>✓</b><span>Mostrá tus servicios y trabajos.</span></div><div class="aside-item"><b>✓</b><span>Los vecinos pueden contactarte por WhatsApp.</span></div></div><div class="aside-note"><strong>¿Preferís hablar con alguien?</strong><br>También podés escribirles directamente por WhatsApp a Joaquín o Santi desde la página de Tito.</div></aside>
+</div>
+</div>
+<script>
+(function(){
+const $=id=>document.getElementById(id),form=$('provider-form');let step=1;let photos=[];
+$('category').addEventListener('change',()=>{$('other-wrap').hidden=$('category').value!=='Otro servicio'});
+function go(n){step=n;[1,2,3].forEach(i=>$('step'+i).hidden=i!==n);$('progress-bar').style.width=n===1?'50%':'100%';$('step-label').textContent=n===1?'TU INFORMACIÓN':n===2?'TU PERFIL PROFESIONAL':'VISTA DE TU SOLICITUD';$('step-count').textContent=n===3?'¡Listo!':'Paso '+n+' de 2';$('step-label').scrollIntoView({behavior:'smooth',block:'center'});}
+function validWhatsapp(value){
+  // Argentina: 10 dígitos nacionales (código de área + número); también acepta +54 y +54 9.
+  const v=value.trim().replace(/[\s().-]/g,'');
+  if(!/^\+?\d+$/.test(v)) return false;
+  const digits=v.replace(/^\+/, '');
+  if(/^\d{10}$/.test(digits) && !digits.startsWith('0')) return true;
+  if(/^54\d{10}$/.test(digits) && !digits.slice(2).startsWith('0')) return true;
+  if(/^549\d{10}$/.test(digits) && !digits.slice(3).startsWith('0')) return true;
+  return false;
+}
+function checkWhatsapp(showError){
+ const ok=validWhatsapp($('phone').value);
+ const explanation='Ingresá tu WhatsApp con código de área y sin 0 ni 15. Ej.: 11 5555 1234 o +54 9 11 5555 1234.';
+ $('phone-error').textContent=ok?'':explanation;
+ $('phone-error').hidden=ok||!showError;
+ if(ok||showError) $('phone').setAttribute('aria-invalid',ok?'false':'true');
+ else $('phone').removeAttribute('aria-invalid');
+ return ok;
+}
+$('phone').addEventListener('blur',()=>{if($('phone').value.trim())checkWhatsapp(true)});
+$('phone').addEventListener('input',()=>{if($('phone').getAttribute('aria-invalid')==='true')checkWhatsapp(true)});
+$('next-btn').addEventListener('click',()=>{
+ const name=$('name').value.trim(),cat=$('category').value;
+ if(!name){$('error1').textContent='Completá tu nombre o el de tu negocio.';$('name').focus();return;}
+ if(!checkWhatsapp(true)){$('error1').textContent='';$('phone').focus();return;}
+ if(!cat||(cat==='Otro servicio'&&!$('other').value.trim())){$('error1').textContent='Elegí tu rubro para seguir.';(!cat?$('category'):$('other')).focus();return;}
+ $('error1').textContent='';go(2);
+});
+$('back-btn').addEventListener('click',()=>go(1));$('edit-btn').addEventListener('click',()=>go(2));
+$('photos').addEventListener('change',e=>{const incoming=Array.from(e.target.files||[]).filter(f=>/^image\/(jpeg|png|webp)$/.test(f.type));const space=4-photos.length;if(incoming.length>space){alert('Podés agregar hasta 4 fotos.')}photos.push(...incoming.slice(0,Math.max(0,space)));renderPhotos();e.target.value='';});
+function renderPhotos(){const root=$('thumbs');root.replaceChildren();photos.forEach((p,i)=>{const card=document.createElement('div');card.className='thumb';const img=document.createElement('img');img.alt=p.name;img.src=URL.createObjectURL(p);img.onload=()=>URL.revokeObjectURL(img.src);const del=document.createElement('button');del.type='button';del.textContent='×';del.setAttribute('aria-label','Quitar foto '+(i+1));del.onclick=()=>{photos.splice(i,1);renderPhotos()};card.append(img,del);root.append(card);});}
+function row(label,value){const dt=document.createElement('dt');dt.textContent=label;const dd=document.createElement('dd');dd.textContent=value||'No indicado';$('summary').append(dt,dd)}
+form.addEventListener('submit',e=>{e.preventDefault();if(!$('consent').checked){$('error2').textContent='Para continuar, aceptá que Tito pueda contactarte.';return}$('error2').textContent='';$('summary').replaceChildren();row('Nombre / negocio',$('name').value.trim());row('WhatsApp',$('phone').value.trim());row('Rubro',$('category').value==='Otro servicio'?$('other').value:$('category').value);row('Descripción',$('details').value.trim());row('Redes sociales',$('instagram').value.trim());row('Experiencia',$('exp').value);row('Fotos',photos.length+' foto(s) seleccionada(s)');
+const lines=['Hola, quiero registrarme como prestador de Tito.',
+'Nombre/negocio: '+$('name').value.trim(),
+'WhatsApp: '+$('phone').value.trim(),
+'Rubro: '+($('category').value==='Otro servicio'?$('other').value.trim():$('category').value)];
+if($('details').value.trim())lines.push('Descripción: '+$('details').value.trim());
+if($('instagram').value.trim())lines.push('Redes sociales: '+$('instagram').value.trim());
+if($('exp').value)lines.push('Experiencia: '+$('exp').value);
+if(photos.length)lines.push('Tengo '+photos.length+' foto(s) para compartir en este chat.');
+const msg=encodeURIComponent(lines.join('\n'));
+$('send-joaquin').href='https://wa.me/5491127492650?text='+msg;
+$('send-santi').href='https://wa.me/5491167981096?text='+msg;
+go(3)});
+})();
+</script>
+</body></html>
