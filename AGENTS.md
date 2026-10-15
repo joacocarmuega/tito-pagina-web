@@ -11,6 +11,7 @@ Hablales en español rioplatense, simple, sin tecnicismos.
 - Toda la página es un solo archivo: `index.html` (HTML + CSS + un poco de JavaScript, sin frameworks ni build).
 - `tito.webp` es el personaje de la marca (el hombre con gorra verde). No lo borres ni lo reemplaces sin que te lo pidan.
 - El logo "Tito" con la sonrisa verde está dibujado en SVG dentro de `index.html` (arriba y en el pie). No lo quites.
+- `registro.html` es el formulario de inscripción de prestadores (se abre desde la página principal). Al enviarlo, manda los datos a `api/registro.js`, que los reenvía al Apps Script "Tito - Registro de prestadores": este guarda una fila en la planilla Base_Tito_unificada (pestaña PRESTADORES, Estado = Pendiente) y las fotos en Drive. La dirección del Apps Script y la clave están en variables de entorno de Vercel (`TITO_SCRIPT_URL`, `TITO_REGISTRATION_SECRET`): **nunca las pongas en el código**. No cambies los nombres de los campos que se mandan sin revisar también el Apps Script.
 - La página está conectada a Vercel: **cada cambio que se guarda en la rama `main` se publica solo en 1 o 2 minutos.** No hace falta hacer nada en Vercel.
 
 ## Cómo trabajar

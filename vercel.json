@@ -1,0 +1,5 @@
+{
+  "functions": {
+    "api/registro.js": { "maxDuration": 60 }
+  }
+}

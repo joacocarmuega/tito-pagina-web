@@ -44,9 +44,9 @@ h1,h2,h3{font-family:'Bricolage Grotesque',sans-serif;letter-spacing:-.025em}h1{
 <form id="provider-form" novalidate>
 <section id="step1">
 <h2 class="section-title">Empecemos por lo básico</h2><p class="hint">Lo necesario para conocerte y saber qué servicios ofrecés.</p>
-<div class="two"><div class="field"><label for="name">Tu nombre o nombre del negocio <span class="req">*</span></label><input id="name" name="name" autocomplete="name" placeholder="Ej.: Juan Pérez" required></div><div class="field"><label for="phone">Tu WhatsApp <span class="req">*</span></label><input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="Ej.: 11 5555 1234" aria-describedby="phone-help phone-error" required><p class="micro" id="phone-help">Con código de área, sin 0 ni 15. Ej.: <strong>11 5555 1234</strong> o <strong>+54 9 11 5555 1234</strong>.</p><p class="phone-error" id="phone-error" role="alert" aria-live="polite" hidden></p></div></div>
+<div class="two"><div class="field"><label for="name">Tu nombre o nombre del negocio <span class="req">*</span></label><input id="name" name="name" autocomplete="name" placeholder="Ej.: Juan Pérez" maxlength="120" required></div><div class="field"><label for="phone">Tu WhatsApp <span class="req">*</span></label><input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="Ej.: 11 5555 1234" maxlength="30" aria-describedby="phone-help phone-error" required><p class="micro" id="phone-help">Con código de área, sin 0 ni 15. Ej.: <strong>11 5555 1234</strong> o <strong>+54 9 11 5555 1234</strong>.</p><p class="phone-error" id="phone-error" role="alert" aria-live="polite" hidden></p></div></div>
 <div class="field"><label for="category">¿A qué te dedicás? <span class="req">*</span></label><select id="category" name="category" required><option value="">Elegí el rubro que mejor te representa</option><option>Comidas e insumos</option><option>Construcción y albañilería</option><option>Electricidad e instalaciones</option><option>Plomería, gas y destapaciones</option><option>Aire acondicionado y calefacción</option><option>Carpintería, herrería y muebles</option><option>Pintura y revestimientos</option><option>Cerrajería, aberturas y vidrios</option><option>Electrodomésticos y tecnología</option><option>Jardinería y espacios verdes</option><option>Piletas y bombas de agua</option><option>Limpieza y fumigaciones</option><option>Mascotas</option><option>Transporte, fletes y mudanzas</option><option>Automotores y lavado</option><option>Educación y clases</option><option>Mantenimiento general</option><option>Otro servicio</option></select><p class="micro">Por ejemplo, rotisería o venta de huevos → <strong>Comidas e insumos</strong>.</p></div>
-<div class="field" id="other-wrap" hidden><label for="other">¿Cuál es tu rubro?</label><input id="other" placeholder="Contanos a qué te dedicás" /></div>
+<div class="field" id="other-wrap" hidden><label for="other">¿Cuál es tu rubro?</label><input id="other" placeholder="Contanos a qué te dedicás" maxlength="100" /></div>
 
 <div class="error" id="error1" role="alert"></div>
 <div class="actions" style="justify-content:flex-end"><button type="button" class="btn" id="next-btn">Continuar <span aria-hidden="true">→</span></button></div>
@@ -57,17 +57,17 @@ h1,h2,h3{font-family:'Bricolage Grotesque',sans-serif;letter-spacing:-.025em}h1{
 
 <div class="field"><label for="details">Contanos algo más <span class="optional-badge">OPCIONAL</span></label><textarea id="details" placeholder="Ej.: trabajo los fines de semana, tengo 8 años de experiencia, hago presupuestos sin cargo..." maxlength="450"></textarea></div>
 <div class="two"><div class="field"><label for="instagram">Tus redes sociales <span class="optional-badge">OPCIONAL</span></label><input id="instagram" type="text" inputmode="url" autocomplete="off" placeholder="Instagram, TikTok, Facebook o web" maxlength="70"></div><div class="field"><label for="exp">Experiencia <span class="optional-badge">OPCIONAL</span></label><select id="exp"><option value="">Seleccioná si querés</option><option>Menos de 1 año</option><option>1 a 3 años</option><option>3 a 5 años</option><option>Más de 5 años</option></select></div></div>
-<div class="field"><label>Fotos de tus trabajos <span class="optional-badge">OPCIONAL</span></label><label class="drop" for="photos"><strong>📷 &nbsp; Agregar fotos</strong><span>Elegí hasta 4 fotos · JPG, PNG o WebP</span><input type="file" id="photos" accept="image/jpeg,image/png,image/webp" multiple></label><div class="thumbs" id="thumbs"></div><p class="micro">Podés elegirlas para revisarlas acá. Para que las recibamos, después vas a tener que adjuntarlas en el chat de WhatsApp.</p></div>
+<div class="field"><label>Fotos de tus trabajos <span class="optional-badge">OPCIONAL</span></label><label class="drop" for="photos"><strong>📷 &nbsp; Agregar fotos</strong><span>Elegí hasta 4 fotos · JPG, PNG o WebP</span><input type="file" id="photos" accept="image/jpeg,image/png,image/webp" multiple></label><div class="thumbs" id="thumbs"></div><p class="micro">Se guardan junto con tu registro. No hace falta mandarlas por WhatsApp.</p></div>
 <label class="consent"><input id="consent" type="checkbox"><span>Acepto que Tito me contacte y revise estos datos para crear mi perfil. Antes de publicar mis fotos o información se me informará cómo serán utilizados.</span></label>
-<div class="error" id="error2" role="alert"></div><div class="actions"><button type="button" class="btn btn-secondary" id="back-btn">← Volver</button><button type="submit" class="btn">Ver mi solicitud →</button></div>
-<p class="form-footer">Al continuar, podés elegir enviar tus datos a Joaquín o Santi por WhatsApp.</p>
+<div class="error" id="error2" role="alert"></div><div class="actions"><button type="button" class="btn btn-secondary" id="back-btn">← Volver</button><button type="submit" class="btn" id="submit-btn">Enviar mi registro →</button></div>
+<p class="form-footer" id="sending-note" role="status" aria-live="polite">Tus datos se guardan de forma segura y los revisamos antes de publicar tu perfil.</p>
 </section>
-<section id="step3" hidden><div class="success-icon">✓</div><h2 class="section-title">Tus datos están listos</h2><p class="hint">Elegí a quién enviárselos por WhatsApp. Revisá el mensaje y tocá <strong>Enviar</strong> en WhatsApp para completar la inscripción.</p><dl class="summary" id="summary"></dl>
-<div class="send-options" aria-label="Elegir contacto para enviar el registro">
-<a class="btn send-wa" id="send-joaquin" href="#" target="_blank" rel="noopener noreferrer">Enviar a Joaquín (Las Liebres) ↗</a>
-<a class="btn send-wa" id="send-santi" href="#" target="_blank" rel="noopener noreferrer">Enviar a Santi (Galápagos) ↗</a>
-</div><p class="form-footer">Las fotos seleccionadas no se adjuntan automáticamente. Si querés enviarlas, compartilas en el chat de WhatsApp después de enviar el mensaje. Tus datos no se almacenan en esta página.</p>
-<button type="button" class="btn btn-secondary" id="edit-btn">← Editar mis datos</button></section>
+<section id="step3" hidden><div class="success-icon">✓</div><h2 class="section-title">¡Listo! Recibimos tu registro</h2><p class="hint">Guardamos tus datos<span id="photos-saved"></span>. Los vamos a revisar y te escribimos por WhatsApp. <strong>No tenés que hacer nada más.</strong></p><dl class="summary" id="summary"></dl>
+<p class="hint" style="margin:0">¿Querés contarnos algo más? Es opcional: podés escribirnos directo por WhatsApp.</p>
+<div class="send-options" aria-label="Escribir por WhatsApp (opcional)">
+<a class="btn btn-secondary send-wa" id="send-joaquin" href="#" target="_blank" rel="noopener noreferrer">Escribir a Joaquín (Las Liebres) ↗</a>
+<a class="btn btn-secondary send-wa" id="send-santi" href="#" target="_blank" rel="noopener noreferrer">Escribir a Santi (Galápagos) ↗</a>
+</div></section>
 </form>
 </main>
 <aside class="aside"><small>BIENVENIDO A TITO</small><h3>Más oportunidades, sin complicarte.</h3><p>Los vecinos encuentran prestadores para el trabajo que necesitan, y te escriben directo.</p><div class="aside-list"><div class="aside-item"><b>✓</b><span>Sumarte a Tito es <strong>gratis</strong>.</span></div><div class="aside-item"><b>✓</b><span>Mostrá tus servicios y trabajos.</span></div><div class="aside-item"><b>✓</b><span>Los vecinos pueden contactarte por WhatsApp.</span></div></div><div class="aside-note"><strong>¿Preferís hablar con alguien?</strong><br>También podés escribirles directamente por WhatsApp a Joaquín o Santi desde la página de Tito.</div></aside>
@@ -77,7 +77,7 @@ h1,h2,h3{font-family:'Bricolage Grotesque',sans-serif;letter-spacing:-.025em}h1{
 (function(){
 const $=id=>document.getElementById(id),form=$('provider-form');let step=1;let photos=[];
 $('category').addEventListener('change',()=>{$('other-wrap').hidden=$('category').value!=='Otro servicio'});
-function go(n){step=n;[1,2,3].forEach(i=>$('step'+i).hidden=i!==n);$('progress-bar').style.width=n===1?'50%':'100%';$('step-label').textContent=n===1?'TU INFORMACIÓN':n===2?'TU PERFIL PROFESIONAL':'VISTA DE TU SOLICITUD';$('step-count').textContent=n===3?'¡Listo!':'Paso '+n+' de 2';$('step-label').scrollIntoView({behavior:'smooth',block:'center'});}
+function go(n){step=n;[1,2,3].forEach(i=>$('step'+i).hidden=i!==n);$('progress-bar').style.width=n===1?'50%':'100%';$('step-label').textContent=n===1?'TU INFORMACIÓN':n===2?'TU PERFIL PROFESIONAL':'REGISTRO ENVIADO';$('step-count').textContent=n===3?'¡Listo!':'Paso '+n+' de 2';$('step-label').scrollIntoView({behavior:'smooth',block:'center'});}
 function validWhatsapp(value){
   // Argentina: 10 dígitos nacionales (código de área + número); también acepta +54 y +54 9.
   const v=value.trim().replace(/[\s().-]/g,'');
@@ -106,23 +106,50 @@ $('next-btn').addEventListener('click',()=>{
  if(!cat||(cat==='Otro servicio'&&!$('other').value.trim())){$('error1').textContent='Elegí tu rubro para seguir.';(!cat?$('category'):$('other')).focus();return;}
  $('error1').textContent='';go(2);
 });
-$('back-btn').addEventListener('click',()=>go(1));$('edit-btn').addEventListener('click',()=>go(2));
+$('back-btn').addEventListener('click',()=>go(1));
 $('photos').addEventListener('change',e=>{const incoming=Array.from(e.target.files||[]).filter(f=>/^image\/(jpeg|png|webp)$/.test(f.type));const space=4-photos.length;if(incoming.length>space){alert('Podés agregar hasta 4 fotos.')}photos.push(...incoming.slice(0,Math.max(0,space)));renderPhotos();e.target.value='';});
 function renderPhotos(){const root=$('thumbs');root.replaceChildren();photos.forEach((p,i)=>{const card=document.createElement('div');card.className='thumb';const img=document.createElement('img');img.alt=p.name;img.src=URL.createObjectURL(p);img.onload=()=>URL.revokeObjectURL(img.src);const del=document.createElement('button');del.type='button';del.textContent='×';del.setAttribute('aria-label','Quitar foto '+(i+1));del.onclick=()=>{photos.splice(i,1);renderPhotos()};card.append(img,del);root.append(card);});}
 function row(label,value){const dt=document.createElement('dt');dt.textContent=label;const dd=document.createElement('dd');dd.textContent=value||'No indicado';$('summary').append(dt,dd)}
-form.addEventListener('submit',e=>{e.preventDefault();if(!$('consent').checked){$('error2').textContent='Para continuar, aceptá que Tito pueda contactarte.';return}$('error2').textContent='';$('summary').replaceChildren();row('Nombre / negocio',$('name').value.trim());row('WhatsApp',$('phone').value.trim());row('Rubro',$('category').value==='Otro servicio'?$('other').value:$('category').value);row('Descripción',$('details').value.trim());row('Redes sociales',$('instagram').value.trim());row('Experiencia',$('exp').value);row('Fotos',photos.length+' foto(s) seleccionada(s)');
-const lines=['Hola, quiero registrarme como prestador de Tito.',
-'Nombre/negocio: '+$('name').value.trim(),
-'WhatsApp: '+$('phone').value.trim(),
-'Rubro: '+($('category').value==='Otro servicio'?$('other').value.trim():$('category').value)];
-if($('details').value.trim())lines.push('Descripción: '+$('details').value.trim());
-if($('instagram').value.trim())lines.push('Redes sociales: '+$('instagram').value.trim());
-if($('exp').value)lines.push('Experiencia: '+$('exp').value);
-if(photos.length)lines.push('Tengo '+photos.length+' foto(s) para compartir en este chat.');
-const msg=encodeURIComponent(lines.join('\n'));
-$('send-joaquin').href='https://wa.me/5491127492650?text='+msg;
-$('send-santi').href='https://wa.me/5491167981096?text='+msg;
-go(3)});
+// Un ID fijo por registro: si hay que reintentar, el servidor reconoce el mismo ID y no duplica la fila ni las fotos.
+function newId(){if(window.crypto&&crypto.randomUUID)return crypto.randomUUID();return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g,c=>{const r=crypto.getRandomValues(new Uint8Array(1))[0]&15;return(c==='x'?r:(r&3|8)).toString(16)});}
+const registrationId=newId();let sending=false,saved=false;
+const rubro=()=>$('category').value==='Otro servicio'?('Otro: '+$('other').value.trim()).slice(0,120):$('category').value;
+// Achica cada foto a JPG liviano para que se suba rápido desde el celular.
+async function toJpeg(file){
+ let bmp;try{bmp=await createImageBitmap(file,{imageOrientation:'from-image'})}catch(_){bmp=await new Promise((ok,ko)=>{const i=new Image();i.onload=()=>ok(i);i.onerror=ko;i.src=URL.createObjectURL(file)})}
+ const w=bmp.width,h=bmp.height;
+ for(const [max,q] of [[1600,.82],[1280,.75],[1024,.7],[800,.65]]){
+  const s=Math.min(1,max/Math.max(w,h)),c=document.createElement('canvas');c.width=Math.round(w*s);c.height=Math.round(h*s);
+  const ctx=c.getContext('2d');ctx.fillStyle='#fff';ctx.fillRect(0,0,c.width,c.height);ctx.drawImage(bmp,0,0,c.width,c.height);
+  const data=c.toDataURL('image/jpeg',q).split(',')[1];
+  if(data.length<=850000)return {type:'image/jpeg',data};
+ }
+ throw new Error('foto');
+}
+let prepared=null,preparedKey='';
+async function preparePhotos(){const key=photos.map(p=>p.name+p.size+p.lastModified).join('|');if(prepared&&key===preparedKey)return prepared;prepared=[];for(const p of photos)prepared.push(await toJpeg(p));preparedKey=key;return prepared;}
+function setSending(on,text){sending=on;$('submit-btn').disabled=on;$('back-btn').disabled=on;$('submit-btn').textContent=on?'Guardando…':'Enviar mi registro →';$('sending-note').textContent=text;}
+form.addEventListener('submit',async e=>{e.preventDefault();if(sending||saved)return;
+ if(!$('consent').checked){$('error2').textContent='Para continuar, aceptá que Tito pueda contactarte.';return}
+ $('error2').textContent='';setSending(true,photos.length?'Subiendo tus datos y fotos… puede tardar unos segundos.':'Guardando tus datos…');
+ try{
+  const registration={id:registrationId,name:$('name').value.trim(),phone:$('phone').value.trim(),category:rubro(),details:$('details').value.trim(),instagram:$('instagram').value.trim(),exp:$('exp').value,photos:await preparePhotos(),consent:true};
+  const ctrl=new AbortController(),t=setTimeout(()=>ctrl.abort(),70000);
+  let r;try{r=await fetch('/api/registro',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({registration}),signal:ctrl.signal})}finally{clearTimeout(t)}
+  const out=await r.json().catch(()=>null);
+  if(!r.ok||!out||out.ok!==true)throw new Error('guardado');
+  saved=true;
+ }catch(err){
+  setSending(false,'Tus datos se guardan de forma segura y los revisamos antes de publicar tu perfil.');
+  $('error2').textContent=err&&err.message==='foto'?'No pudimos procesar una de las fotos. Probá quitarla o elegir otra y volvé a enviar.':'No pudimos guardar tu registro. Revisá tu conexión y tocá "Enviar mi registro" de nuevo: lo que cargaste sigue acá.';
+  return;
+ }
+ $('summary').replaceChildren();row('Nombre / negocio',$('name').value.trim());row('WhatsApp',$('phone').value.trim());row('Rubro',rubro());row('Descripción',$('details').value.trim());row('Redes sociales',$('instagram').value.trim());row('Experiencia',$('exp').value);row('Fotos',photos.length?photos.length+' foto(s)':'');
+ $('photos-saved').textContent=photos.length?' y tus fotos':'';
+ const msg=encodeURIComponent('Hola, ya me registré en Tito como '+$('name').value.trim()+' y quiero contarles algo más:');
+ $('send-joaquin').href='https://wa.me/5491127492650?text='+msg;
+ $('send-santi').href='https://wa.me/5491167981096?text='+msg;
+ go(3)});
 })();
 </script>
 </body></html>
